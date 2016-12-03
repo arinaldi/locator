@@ -1,0 +1,84 @@
+extends layout
+
+block content
+  .row.page-header
+    .col-lg-12
+      h1 Tony's Teas
+  .row
+    .col-xs-12.col-md-9
+      .row
+        .col-xs-12.col-sm-6
+          p.rating
+            span.glyphicon.glyphicon-star
+            span.glyphicon.glyphicon-star
+            span.glyphicon.glyphicon-star
+            span.glyphicon.glyphicon-star-empty
+            span.glyphicon.glyphicon-star-empty
+          p 222 Tacoma Street, Austin, TX 78701
+          .panel.panel-primary
+            .panel-heading
+              h2.panel-title Opening hours
+            .panel-body
+              p Monday - Friday : 7:00am - 7:00pm
+              p Saturday : 8:00am - 5:00pm
+              p Sunday : closed
+          .panel.panel-primary
+            .panel-heading
+              h2.panel-title Facilities
+            .panel-body
+              span.label.label-warning
+                span.glyphicon.glyphicon-ok
+                | &nbsp;Hot drinks
+              | &nbsp;
+              span.label.label-warning
+                span.glyphicon.glyphicon-ok
+                | &nbsp;Food
+              | &nbsp;
+              span.label.label-warning
+                span.glyphicon.glyphicon-ok
+                | &nbsp;Premium Wi-Fi
+              | &nbsp;
+        .col-xs-12.col-sm-6.location-map
+          .panel.panel-primary
+            .panel-heading
+              h2.panel-title Location map
+            .panel-body
+              img.img-responsive.img-rounded(src="http://maps.googleapis.com/maps/api/staticmap?center=30.267153,-97.74306079999997&zoom=15&size=400x350&sensor=false&markers=30.267153,-97.74306079999997&scale=2")
+      .row
+        .col-xs-12
+          .panel.panel-primary.review-panel
+            .panel-heading
+              a.btn.btn-default.pull-right(href="/location/review/new") Add review
+              h2.panel-title Customer reviews
+            .panel-body.review-container
+              .row
+                .review
+                  .well.well-sm.review-header
+                    span.rating
+                      span.glyphicon.glyphicon-star
+                      span.glyphicon.glyphicon-star
+                      span.glyphicon.glyphicon-star
+                      span.glyphicon.glyphicon-star
+                      span.glyphicon.glyphicon-star-empty
+                    span.reviewAuthor Meow Meow
+                    small.reviewTimestamp December 3, 2017
+                  .col-xs-12
+                    p My go-to stop to groom myself.
+              .row
+                .review
+                  .well.well-sm.review-header
+                    span.rating
+                      span.glyphicon.glyphicon-star
+                      span.glyphicon.glyphicon-star
+                      span.glyphicon.glyphicon-star-empty
+                      span.glyphicon.glyphicon-star-empty
+                      span.glyphicon.glyphicon-star-empty
+                    span.reviewAuthor Ray Raisin
+                    small.reviewTimestamp January 31, 2017
+                  .col-xs-12
+                    p It was okay. The tea was good, but there were no treats!
+    .col-xs-12.col-md-3
+      p.lead
+        | Tony's Teas is on Locator because it has accessible Wi-Fi and space to sit down with your laptop and get some work done.
+      p
+        | If you've been and you like it, or if you don't, please leave a review to help other people like you.
