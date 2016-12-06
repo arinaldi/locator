@@ -32,7 +32,7 @@ module.exports.homelist = function(req, res) {
 /* GET 'Location info' page */
 module.exports.locationInfo = function(req, res) {
 	res.render('location-info', {
-		title: 'Tony\'s',
+		title: 'Tony\'s Teas',
 		pageHeader: {title: 'Tony\'s Teas'},
 		sidebar: {
 			context: 'is on Locator because it has accessible Wi-Fi and space to sit down with your laptop and get some work done.',
