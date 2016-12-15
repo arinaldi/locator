@@ -6,11 +6,11 @@ if (process.env.NODE_ENV === 'production') {
 	apiOptions.server = "https://guarded-shelf-90769.herokuapp.com";
 }
 
-var _isNumeric = function (n) {
+var _isNumeric = function(n) {
 	return !isNaN(parseFloat(n)) && isFinite(n);
 };
 
-var _formatDistance = function (distance) {
+var _formatDistance = function(distance) {
 	var numDistance, unit;
 	if (distance && _isNumeric(distance)) {
 		if (distance > 1) {
@@ -45,52 +45,44 @@ var _showError = function(req, res, status) {
 	});
 };
 
-var renderHomepage = function(req, res, responseBody) {
-	var message;
-	if (!(responseBody instanceof Array)) {
-		message = 'API lookup error';
-		responseBody = [];
-	} else {
-		if (!responseBody.length) {
-			message = 'No places found nearby';
-		}
-	}
-	res.render('locations-list', { 
+var renderHomepage = function(req, res) {
+	res.render("locations-list", { 
 		title: "Locator - Find a place to work with Wi-Fi",
 		pageHeader: {
 			title: "Locator",
 			tagline: "Find a place to work with Wi-Fi near you."
 		},
-		sidebar: "Looking for Wi-Fi and a seat? Locator helps you find places to work when you're out and about. Perhaps with coffee, donuts, or a beer? Let Locator help you find the place you're looking for.",
-		locations: responseBody,
-		message: message
+		sidebar: "Looking for Wi-Fi and a seat? Locator helps you find places to work when you're out and about. Perhaps with coffee, donuts, or a beer? Let Locator help you find the place you're looking for."
 	});
 };
 
 /* GET 'home' page */
+// module.exports.homelist = function(req, res) {
+// 	var requestOptions, path;
+// 	path = '/api/locations';
+// 	requestOptions = {
+// 		url: apiOptions.server + path,
+// 		method: 'GET',
+// 		json: {},
+// 		qs: {
+// 			lng: -97.740340,
+// 			lat: 30.268982,
+// 			maxDistance: 20
+// 		}
+// 	};
+// 	request(requestOptions, function(err, response, body) {
+// 		var i, data;
+// 		data = body;
+// 		if (response.statusCode === 200 && data.length) {
+// 			for (i = 0; i < data.length; i++) {
+// 				data[i].distance = _formatDistance(data[i].distance);
+// 			}
+// 		}
+// 		renderHomepage(req, res, data);
+// 	});
+// };
 module.exports.homelist = function(req, res) {
-	var requestOptions, path;
-	path = '/api/locations';
-	requestOptions = {
-		url: apiOptions.server + path,
-		method: 'GET',
-		json: {},
-		qs: {
-			lng: -97.740340,
-			lat: 30.268982,
-			maxDistance: 20
-		}
-	};
-	request(requestOptions, function(err, response, body) {
-		var i, data;
-		data = body;
-		if (response.statusCode === 200 && data.length) {
-			for (i = 0; i < data.length; i++) {
-				data[i].distance = _formatDistance(data[i].distance);
-			}
-		}
-		renderHomepage(req, res, data);
-	});
+	renderHomepage(req, res);
 };
 
 var getLocationInfo = function(req, res, callback) {
@@ -132,7 +124,8 @@ var renderReviewForm = function(req, res, locDetail) {
 	res.render('location-review-form', {
 		title: 'Review ' + locDetail.name + ' on Locator',
 		pageHeader: { title: 'Review ' + locDetail.name },
-		error: req.query.err
+		error: req.query.err,
+		url: req.originalUrl
 	});
 };
 
