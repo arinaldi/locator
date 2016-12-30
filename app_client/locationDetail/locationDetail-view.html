@@ -25,7 +25,8 @@
                         </div>
                         <div class="panel-body">
                             <span class="label label-warning label-facility" ng-repeat="facility in vm.data.location.facilities">
-                <span class="glyphicon glyphicon-ok"></span> {{ facility }}
+                                <span class="glyphicon glyphicon-ok"></span>
+                                {{ facility }}
                             </span>
                         </div>
                     </div>
@@ -46,7 +47,8 @@
                     <div class="panel panel-primary review-panel">
                         <div class="panel-heading">
                         	<!-- <a ng-click="vm.popupReviewForm()" class="btn btn-default pull-right">Add review</a> -->
-                        	<a id="addReview" ng-click="vm.popupReviewForm()" class="pull-right"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add Review</a>
+                        	<a ng-show="vm.isLoggedIn" ng-click="vm.popupReviewForm()" class="pull-right add-review-links"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add a review</a>
+                            <a ng-hide="vm.isLoggedIn" href="/#/login?page={{ vm.currentPath }}" class="pull-right add-review-links">Log in to add a review</a>
                             <h2 class="panel-title">Customer reviews</h2>
                         </div>
                         <div class="panel-body review-container">

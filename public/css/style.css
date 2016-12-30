@@ -18,10 +18,19 @@
 	color: #ccc;
 }
 
+.label-facility {
+	margin-right: 2px
+
+}
+
+.rating-stars {
+	margin-left: 3px;
+}
+
 #filter {
 	margin: 0 0 5px 5px;
 }
 
-#addReview {
+.add-review-links {
 	cursor: pointer;
 }

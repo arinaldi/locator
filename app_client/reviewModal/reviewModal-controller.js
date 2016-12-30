@@ -10,7 +10,7 @@
 
 		vm.onSubmit = function() {
 			vm.formError = "";
-			if (!vm.formData.name || !vm.formData.rating || !vm.formData.reviewText) {
+			if (!vm.formData.rating || !vm.formData.reviewText) {
 				vm.formError = "All fields are required. Try again.";
 				return false;
 			} else {
@@ -20,7 +20,6 @@
 
 		vm.doAddReview = function(locationid, formData) {
 			locatorData.addReviewById(locationid, {
-				author: formData.name,
 				rating: formData.rating,
 				reviewText: formData.reviewText
 			})
@@ -28,7 +27,7 @@
 					vm.modal.close(data);
 				})
 				.error(function(data) {
-					vm.formError = "Your review has bot been saved. Try again.";
+					vm.formError = "Your review has not been saved. Try again.";
 				});
 			return false;
 		};

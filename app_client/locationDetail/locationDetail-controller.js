@@ -3,10 +3,12 @@
 		.module("locatorApp")
 		.controller("locationDetailCtrl", locationDetailCtrl);
 
-	locationDetailCtrl.$inject = ["$routeParams", "$modal", "locatorData"];
-	function locationDetailCtrl($routeParams, $modal, locatorData) {
+	locationDetailCtrl.$inject = ["$routeParams", "$location", "$modal", "locatorData", "authentication"];
+	function locationDetailCtrl($routeParams, $location, $modal, locatorData, authentication) {
 		var vm = this;
 		vm.locationid = $routeParams.locationid;
+		vm.isLoggedIn = authentication.isLoggedIn();
+		vm.currentPath = $location.path();
 
 		locatorData.locationById(vm.locationid)
 			.success(function(data) {
