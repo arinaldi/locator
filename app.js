@@ -1,6 +1,3 @@
-//forum
-//https://forums.manning.com/forums/getting-mean-with-mongo-express-angular-and-node
-
 require("dotenv").load();
 var express = require("express");
 var path = require("path");
@@ -15,10 +12,8 @@ var passport = require("passport");
 require("./app_api/models/db");
 require("./app_api/config/passport");
 
-//var index = require('./routes/index');
 var routes = require('./app_server/routes/index');
 var routesApi = require('./app_api/routes/index');
-//var users = require('./app_server/routes/users');
 
 var app = express();
 
@@ -57,8 +52,7 @@ fs.writeFile("public/angular/locator.min.js", uglified.code, function(err) {
 	}
 });
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, "public/img", "favicon.ico")));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
