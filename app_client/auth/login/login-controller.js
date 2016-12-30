@@ -9,7 +9,7 @@
 		var vm = this;
 
 		vm.pageHeader = {
-			title: "Sign in to Locator"
+			title: "Log in to Locator"
 		};
 
 		vm.credentials = {
