@@ -48,7 +48,7 @@
                         <div class="panel-heading">
                         	<!-- <a ng-click="vm.popupReviewForm()" class="btn btn-default pull-right">Add review</a> -->
                         	<a ng-show="vm.isLoggedIn" ng-click="vm.popupReviewForm()" class="pull-right add-review-links"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add a review</a>
-                            <a ng-hide="vm.isLoggedIn" href="/#/login?page={{ vm.currentPath }}" class="pull-right add-review-links">Log in to add a review</a>
+                            <a ng-hide="vm.isLoggedIn" href="/#/login?page={{ vm.currentPath }}" class="pull-right add-review-links"><span class="glyphicon glyphicon-user"></span>&nbsp;Log in to review</a>
                             <h2 class="panel-title">Customer reviews</h2>
                         </div>
                         <div class="panel-body review-container">
